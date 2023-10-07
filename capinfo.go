@@ -57,6 +57,7 @@ func aid2PackageName(aidHex string) string {
 
 func main() {
 	log.SetFlags(log.Flags() &^ (log.Ldate | log.Ltime))
+	log.SetPrefix("capinfo: ")
 
 	if len(os.Args) < 2 {
 		log.Fatalln("Missing parameter, provide file name.")
@@ -64,19 +65,19 @@ func main() {
 
 	data, err := os.ReadFile(os.Args[1])
 	if err != nil {
-		log.Fatalln("unable to read file:", os.Args[1])
+		log.Fatalln("Unable to read file:", os.Args[1])
 	}
 
 	bReader := bytes.NewReader(data)
 
 	zReader, err := zip.NewReader(bReader, bReader.Size())
 	if err != nil {
-		log.Fatalln("unable to open zip reader from file provided")
+		log.Fatalln("Unable to open zip reader from file provided")
 	}
 
 	capFile, err := cap.Parse(zReader)
 	if err != nil || capFile == nil {
-		log.Fatalln("failed to parse CAP file: ", err)
+		log.Fatalln("Failed to parse CAP file: ", err)
 	}
 
 	w := new(tabwriter.Writer)

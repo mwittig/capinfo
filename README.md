@@ -33,6 +33,6 @@ Usage: capinfo <filename>
 
 * Open Settings
 * Select "Keymap"
-* Enter "capinfo" into the serach field on the Keymaps pane
+* Enter "capinfo" into the search field on the Keymaps pane
 * Choose "Add Keyboard Shortcut" on the highlighted "External Tool" item
 * Assign a keystroke by pressing the appropriate key(s). For me <crtl><x> worked out fine as it was unassigned before. 
